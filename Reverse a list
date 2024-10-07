@@ -1,0 +1,28 @@
+3 start 
+first_address:programm
+length:6
+start:7 first_address count1
+7 first_address dublicate_first_address
+7 length dublicate_length
+2 dublicate_length one dublicate_length
+1 dublicate_first_address dublicate_length dublicate_first_address
+7 dublicate_first_address count2
+validswap:5 count1 count2 yes
+stop:9
+yes:7 count2 l1
+7 count1 l2
+7 count2 l3
+7 count1 l4
+7 l1:0 helping
+7 l2:0 l3:0
+7 helping l4:0
+1 count1 one count1
+2 count2 one count2
+3 validswap
+count1:0
+count2:0
+dublicate_first_address:0
+dublicate_length:0
+one:1
+helping:0
+programm:1 2 3 4 5 6
