@@ -1,0 +1,16 @@
+3 start
+address_of_first_number:programm
+length_of_address:6
+start:0 0 100
+7 address_of_first_number first_cell
+process:4 length_of_address count_added_so_far yes
+1 first_cell:0 100 100
+1 first_cell one first_cell
+ 1 count_added_so_far one count_added_so_far 
+3 process 
+yes:9
+one:1 
+count_added_so_far:0
+programm:1 2 3 4 5 6
+
+
