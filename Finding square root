@@ -1,0 +1,17 @@
+3 start:5 
+num:151 res:0 
+3  13 odd:1 count:0 temp:0
+one:1 two:2 zero:0 
+7 num temp
+4 temp zero 42
+5 temp zero 38
+2 temp odd temp
+1 odd two odd
+1 count one count 
+3 20 
+2 count one count
+7 count res
+stop:9
+7 zero res 
+stop
+
