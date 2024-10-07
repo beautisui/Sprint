@@ -1,0 +1,156 @@
+3 start  
+current_pointer:program
+current_instruction:0
+start:7 current_pointer fixed_pointer
+restart:7 current_pointer current_pointer_holder
+      7 current_pointer_holder:0 current_instruction
+       4 current_instruction nine stop
+       4 current_instruction three jump
+       4 current_instruction one addition
+       4 current_instruction two  subtraction
+       4 current_instruction seven copy
+       4 current_instruction  zero put
+       4 current_instruction four jump_if_equal
+       4 current_instruction five jump_if_less
+       4 current_instruction ten multiplication
+       stop:9
+jump:1 current_pointer one nextpointer
+     7 nextpointer:0 checknextpointer
+     1 fixed_pointer checknextpointer nextpointer
+     2 nextpointer one nextpointer
+     7 nextpointer current_pointer
+     3 restart
+
+addition:1 current_pointer one 1st_number_addr
+         7 1st_number_addr:0 1st_number
+         1 1st_number fixed_pointer 1st_number
+         2 1st_number one 1st_number
+         1 current_pointer two 2nd_number_addr
+         7 2nd_number_addr:0 2nd_number
+         1 2nd_number fixed_pointer 2nd_number
+         2 2nd_number one 2nd_number
+         1 current_pointer three result_addr
+         7 result_addr:0 result_holder
+         1 fixed_pointer result_holder result_holder
+         2 result_holder one result_holder
+         1 1st_number:0 2nd_number:0 result_holder:0
+        1 current_pointer four current_pointer
+         3 restart
+
+subtraction:1 current_pointer one  subtract_1st_addr
+          7 subtract_1st_addr:0 subtract_1st_number
+          1 subtract_1st_number fixed_pointer subtract_1st_number          
+          2 subtract_1st_number one subtract_1st_number
+          1 current_pointer two  subtract_2nd_addr
+          7 subtract_2nd_addr:0 subtract_2nd_number
+          1 subtract_2nd_number fixed_pointer subtract_2nd_number
+          2 subtract_2nd_number one subtract_2nd_number
+          1 current_pointer three subtract_result_addr
+          7 subtract_result_addr:0 subtract_result
+          1 fixed_pointer subtract_result subtract_result
+          2 subtract_result one subtract_result
+          2 subtract_1st_number:0 subtract_2nd_number:0 subtract_result:0
+         1 current_pointer four current_pointer
+          3 restart
+
+
+
+copy:1 current_pointer one move_from_address
+      7 move_from_address:0 move_from
+      1 fixed_pointer move_from move_from
+      2 move_from one move_from
+      1 current_pointer two move_to_address
+      7 move_to_address:0 move_to
+      1 fixed_pointer move_to move_to
+      2 move_to one move_to
+      7 move_from:0 move_to:0
+      1 current_pointer three current_pointer
+      3 restart
+
+
+put:1 current_pointer one put_value_address  
+    7 put_value_address:0 put_value
+    1 current_pointer two where_to_put_address  
+    7 where_to_put_address:0 where_to_put
+    1 where_to_put fixed_pointer where_to_put    
+    2 where_to_put one  where_to_put
+    7 put_value  where_to_put:0
+    1 current_pointer three current_pointer
+    3 restart
+
+jump_if_equal:1 current_pointer one 1st_checking_address
+         7 1st_checking_address:0 1st_checking_number
+         1 fixed_pointer 1st_checking_number 1st_checking_number
+         2 1st_checking_number one 1st_checking_number
+         1 current_pointer two 2nd_checking_address
+         7 2nd_checking_address:0 2nd_checking_number
+         1 fixed_pointer 2nd_checking_number 2nd_checking_number
+         2 2nd_checking_number one 2nd_checking_number
+         4 1st_checking_number:0 2nd_checking_number:0 yes
+         1 current_pointer four current_pointer  
+        3 restart
+        yes:1 current_pointer three new_pointer
+        7 new_pointer:0 new_pointer_address
+         1 fixed_pointer new_pointer_address new_pointer_address
+         2 new_pointer_address one new_pointer_address
+         7 new_pointer_address current_pointer
+         3 restart
+
+jump_if_less:1 current_pointer one check_less_address
+             7 check_less_address:0 1st_check_number
+             1 fixed_pointer 1st_check_number 1st_check_number
+             2 1st_check_number one 1st_check_number
+             1 current_pointer two check_greater_address
+             7 check_greater_address:0 2nd_check_number
+             1 fixed_pointer 2nd_check_number 2nd_check_number
+             2 2nd_check_number one 2nd_check_number
+             5 1st_check_number 2nd_checking_number if_yes
+             1 current_pointer four current_pointer
+             3 restart
+             if_yes:1 current_pointer three if_less_address
+             7 if_less_address:0 if_yes_number
+             1 fixed_pointer if_yes_number if_yes_number
+             2 if_yes_number one if_yes_number
+             7 if_yes_number current_pointer
+             3 restart
+
+multiplication:1 current_pointer one first_multiplication_address 
+               7 first_multiplication_address:0 1st_multiplication_number
+               1 fixed_pointer  1st_multiplication_number 1st_multiplication_number
+               2 1st_multiplication_number one 1st_multiplication_number 
+               1 current_pointer two second_multiplication_number 
+               7 second_multiplication_number:0 2nd_multplication_number 
+               1 fixed_pointer 2nd_multplication_number  2nd_multplication_number 
+               2 2nd_multplication_number one 2nd_multplication_number
+              1 current_pointer three multiplication_result_address 
+              7 multiplication_result_address:0 multiplication_result 
+               1 fixed_pointer multiplication_result multiplication_result
+               2 multiplication_result one multiplication_result
+
+               7 1st_multiplication_number:0 multiplication_counter 
+               7 multiplication_result  final_result
+multiplication_loop:4 multiplication_counter zero if_counter_zero             
+               1 multiplication_result:0 2nd_multplication_number:0 final_result:0
+               2 multiplication_counter one multiplication_counter
+               3 multiplication_loop
+if_counter_zero:1 current_pointer four current_pointer
+ 3 restart
+ 
+
+
+multiplication_counter:0
+fixed_pointer:0
+one:1
+two:2
+checknextpointer:0
+nine:9
+three:3
+seven:7
+put_value:0
+zero:0
+four:4
+five:5
+ten:10
+new_pointer_address:0
+if_yes_number:0
+program:10 4 3 5 0
