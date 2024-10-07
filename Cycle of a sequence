@@ -1,0 +1,32 @@
+3 start
+sequence_location:program
+sequence_length:3
+cycle_location:150
+cycle_length:6
+start:4 sequence_length zero stop
+      7 sequence_location cycle_sequence
+      7 cycle_location starting_cycle_location
+
+restart:4 sequence_length_counter sequence_length if_yes
+        1 sequence_length_counter one sequence_length_counter
+        4 cycle_length_counter cycle_length stop
+    
+        7 cycle_sequence:0 cycle_element 
+      
+        7 cycle_element starting_cycle_location:0
+        1 cycle_sequence one cycle_sequence
+      1 cycle_length_counter one cycle_length_counter
+      1 starting_cycle_location one starting_cycle_location
+     3 restart
+if_yes:0 0 sequence_length_counter
+       7 sequence_location
+cycle_sequence
+       3 restart
+
+sequence_length_counter:0
+cycle_length_counter:0
+one:1
+cycle_element:0
+stop:9
+zero:0
+program:7 6 5
