@@ -1,0 +1,26 @@
+3 start
+first_element_address:programm
+list_length:6
+list_result:1
+start:7 list_length copy_list_length
+4 list_length zero stop
+7 first_element_address first_cell
+2 copy_list_length one last_cell
+1 first_cell last_cell 
+last_cell
+process:5 first_cell last_cell yes
+1 list_result one list_result 3 stop
+yes:7 first_cell first_cell_value_holder
+7 last_cell last_cell_value_holder
+4 first_cell_value_holder:0 last_cell_value_holder:0 yes1
+ 3 stop
+yes1:1 first_cell one first_cell 
+2 last_cell one last_cell
+3 process
+one:1
+copy_list_length:0
+zero:0
+first_cell:0
+last_cell:0
+stop:9
+programm:1 2 3 3 2 1
