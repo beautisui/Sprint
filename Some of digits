@@ -1,0 +1,22 @@
+3 start
+value_of_the_address:programm
+sum_of_the_digit:0
+start:7 value_of_the_address address_value 
+7 address_value:0 test_remainder 
+process:5 test_remainder ten yes
+no:2 test_remainder ten test_remainder
+1 test_quotent one test_quotent
+3 process
+yes:1 sum_of_the_digit test_remainder sum_of_the_digit 
+4 test_quotent zero stop
+7 test_quotent test_remainder
+7 zero test_quotent
+3 process
+one:1
+zero:0
+ten:10
+stop:9
+test_remainder:0
+test_quotent:0
+programm:3456
+
