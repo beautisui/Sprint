@@ -1,0 +1,17 @@
+3 start
+first-element-loc:programm
+length:6
+check:6
+result:0
+start:7 first-element-loc 11
+     4 0 check 28
+     1 first-element-loc one first-element-loc
+     1 already_count one
+already_count
+     4 length already_count stop 
+     3 start
+     7 one result
+stop:9
+one:1
+already_count:0
+programm:0 2 5 6 7 8
