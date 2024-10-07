@@ -1,0 +1,31 @@
+3 start
+series_start_loc:100
+required_terms:5
+start:7 series_start_loc cell_holder_one
+1 one cell_holder_one cell_holder_two
+
+7 series_start_loc tail
+7 first_term tail:0
+
+1 tail one tail2
+7 second_term tail2:0
+
+
+process:4 required_terms term stop
+7 cell_holder_one addr_of_second_last
+7 cell_holder_two addr_of_last
+1 cell_holder_two one addr_of_new
+
+1 addr_of_second_last:1 addr_of_last:1 addr_of_new:1
+1 cell_holder_one one cell_holder_one
+1 cell_holder_two one cell_holder_two
+1 term one term
+3 process
+first_term:0
+second_term:1
+one:1
+cell_holder_one:1
+cell_holder_two:1
+term:2
+
+stop:9
